@@ -1,0 +1,73 @@
+﻿<div class="container-fluid ">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-body bg-info">
+                    <h5 class="card-title">New Appraisal</h5>
+                    @{
+                        if(ViewBag.data !=null)
+                        {
+                            foreach(var i in ViewBag.data)
+                            {
+                                <p>Hey <b>@User.Identity.Name</b>, An appraisal form is created for you <b>Created on @i.StartDate</b>Click here to <a asp-action="ViewForm" asp-controller="Employee" asp-route-aid="@i.AppraisalId">See Details</a> </p> <hr />
+                            }
+
+                           
+
+                        }
+                        else
+                        {
+                            <p>No New Appraisal Form..</p>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-body bg-info">
+                    <h5 class="card-title">Pending Appraisal</h5>
+                    @{
+                        if (ViewBag.pending != null)
+                        {
+                            foreach (var i in ViewBag.pending)
+                            {
+                                <p>Hey <b>@User.Identity.Name</b>, you have made the changes waiting for manager approval <b>Created on @i.StartDate</b></p> <hr />
+                            }
+
+
+
+                        }
+                        else
+                        {
+                            <p>No pending Appraisal Form..</p>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-body bg-info">
+                    <h5 class="card-title">Previous Appraisal</h5>
+                    @{
+                        if (ViewBag.completed != null)
+                        {
+                            foreach (var i in ViewBag.completed)
+                            {
+                                <p>Hey <b>@User.Identity.Name</b>, you have made the changes waiting for manager approval <b>Created on @i.StartDate</b>Click here to <a asp-action="Mgrcmtform" asp-controller="Employee" asp-route-aid="@i.AppraisalId">See Details</a>  </p> <hr />
+                            }
+
+
+
+                        }
+                        else
+                        {
+                            <p>No completed Appraisal Form..</p>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

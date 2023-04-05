@@ -1,0 +1,81 @@
+﻿@*@model Emp_performance_appraisal.Models.Appraisal*@
+@model Form;
+@inject Emp_performance_appraisal.Services.basicfn emp;
+<form asp-action="ViewForm" asp-controller="Employee" method="post">
+   
+    <div class="row">
+
+
+        <div class="col-sm-4">
+            <label>Appraisal ID</label>
+            <p> @ViewBag.data.AppraisalId</p>
+        </div>
+        <div class="col-sm-4">
+            <label>Your Name</label>
+            <p> @emp.GetEmployeeById(ViewBag.data.EmpID).Name</p>
+        </div>
+
+        <div class="col-sm-4">
+            <label>Manager Name</label>
+            <p> @emp.GetEmployeeById(ViewBag.data.ManagerID).Name</p>
+        </div>
+
+    </div>
+    <div>
+        <label>Objectives</label>
+        <p> @ViewBag.data.Objectives</p>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-4">
+            <label>Tech Competency</label>
+            <p> @ViewBag.tech</p>
+        </div>
+
+        <div class="col-sm-4">
+            <label>Employee Rating</label>
+            <input class="form-control" value ="@ViewBag.MyModel.EmpRatingT" min="0" max="5" asp-for="EmpRatingT"/>
+        </div>
+
+        <div class="col-sm-4">
+            <label>Employee Comments</label>
+            <input class="form-control" value ="@ViewBag.MyModel.EmpCommentsT" asp-for="EmpCommentsT"/>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-4">
+            <label>Behavioural Competency</label>
+            <p>@ViewBag.behv</p>
+        </div>
+
+        <div class="col-sm-4">
+            <label>Employee Rating</label>
+            <input class="form-control" value="@ViewBag.MyModel.EmpRatingB" min="0" max="5" asp-for="EmpRatingB" />
+        </div>
+
+        <div class="col-sm-4">
+            <label>Employee Comments</label>
+            <input class="form-control" value = "@ViewBag.MyModel.EmpCommentsB" asp-for="EmpCommentsB" />
+        </div>
+
+    </div>
+
+    <div class="container mt-4">
+        <select asp-for="Appraisalid" hidden>
+
+            <option value="@ViewBag.data.AppraisalId" selected>@ViewBag.data.AppraisalId</option>
+
+        </select>
+
+    </div>
+
+    <div>
+        <input class="btn btn-primary mt- " type="submit" value="Submit">
+    </div>
+
+
+
+</form>

@@ -1,0 +1,115 @@
+﻿@model Form;
+
+<form asp-action="MgrForm" asp-controller="Manager" method="post">
+
+    <div class="row">
+
+
+        <div class="col-sm-6">
+            <label>Appraisal ID</label>
+            <p> @ViewBag.data.AppraisalId</p>
+        </div>
+
+    </div>
+    <div>
+        <label>Objectives</label>
+        <p> @ViewBag.data.Objectives</p>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-4">
+            <label>Tech Competency</label>
+            <p> @ViewBag.tech</p>
+        </div>
+
+        <div class="col-sm-4">
+            <label>Employee Rating</label>
+            <p>@ViewBag.MyModel.EmpRatingT</p>
+        </div>
+
+        <div class="col-sm-4">
+            <label>Employee Comments</label>
+            <p>@ViewBag.MyModel.EmpCommentsT</p>
+        </div>
+
+    </div>
+
+
+    <div >
+        <input type="number" value="@ViewBag.data.AppraisalId"  asp-for="Appraisalid" hidden />
+        </div>
+
+    <div class="row">
+
+        <div class="col-sm-4">
+            <label>Behavioural Competency</label>
+            <p>@ViewBag.behv</p>
+        </div>
+
+        <div class="col-sm-4">
+            <label>Employee Rating</label>
+            <p>@ViewBag.MyModel.EmpRatingB</p>
+        </div>
+
+        <div class="col-sm-4">
+            <label>Employee Comments</label>
+            <p>@ViewBag.MyModel.EmpCommentsB</p>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-sm-4">
+            <label>Tech Competency</label>
+            <p> @ViewBag.tech</p>
+        </div>
+
+        <div class="col-sm-4">
+            <label>Manager Rating</label>
+            <input class="form-control mc" value="@ViewBag.MyModel.EmpRatingT" min="0" max="5" asp-for="MgrRatingT" />
+        </div>
+
+        <div class="col-sm-4">
+            <label>Manager Comments</label>
+            <input class="form-control mc" value="@ViewBag.MyModel.EmpCommentsT" asp-for="MgrCommentsT" />
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-4">
+            <label>Behavioural Competency</label>
+            <p>@ViewBag.behv</p>
+        </div>
+
+        <div class="col-sm-4">
+            <label>Manager Rating</label>
+            <input class="form-control mc" value="@ViewBag.MyModel.EmpRatingB" min="0" max="5" asp-for="MgrRatingB" />
+        </div>
+
+        <div class="col-sm-4">
+            <label>Manager Comments</label>
+            <input class="form-control mc" value="@ViewBag.MyModel.EmpCommentsB" asp-for="MgrCommentsB" />
+        </div>
+
+    </div>
+
+    <div>
+        <input class="btn btn-primary mt- " type="submit" value="Submit">
+    </div>
+
+
+
+</form>
+<script>
+
+
+    Array.from(document.getElementsByClassName('mc')).forEach(e=>{
+
+
+        e.value="";
+
+    });
+
+</script>

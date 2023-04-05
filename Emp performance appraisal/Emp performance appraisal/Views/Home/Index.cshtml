@@ -1,0 +1,88 @@
+﻿@model Emp_performance_appraisal.Models.Login
+@{
+    ViewData["Title"] = "Home Page";
+   
+}
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>*@
+
+<title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+<style>
+    .main {
+        background-image: url('Images/aimage.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat :no-repeat;
+        background-attachment :fixed;
+        height : 80vh;
+    }
+
+    form {
+        background-color: white;
+        margin-top: 8em;
+        margin-left: 30em;
+        margin-right: 30em;
+        padding: 40px;
+        box-shadow: 4px 4px 4px 4px #888888;
+    }
+</style>
+
+
+    <div class="container">
+        <div class="main">
+    @*<img src="~/images/aimage.jpeg" />*@
+        </div>
+
+        @{
+            if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+        }
+    <form asp-action="Index" asp-controller="Home" method="post">
+        
+            <div class="mb-3">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control">
+                <span asp-validation-for="Email" class="text-danger"></span>
+              
+            </div>
+            <div class="mb-3">
+                <label  asp-for ="Password"></label>
+                <input id ="password" type="password"  asp-for="Password">
+                <i id ="open" class = "fa fa-eye float-right" style="margin-left: -29px; cursor:pointer"></i>
+                <i id ="closed" class = "fa fa-eye-slash float-right" style="margin-left: -29px; display:none;"></i>
+                <span asp-validation-for="Password" class="text-danger"></span>
+               
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+    @*<a href="~/lib/jquery/dist/jquery.min.map">~/lib/jquery/dist/jquery.min.map</a>*@
+
+
+    @section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#open").click(function () {
+                $("#open").hide();
+                $("#closed").show();
+                $("#password").attr("type", "text");
+            });
+            $("#closed").click(function () {
+                $("#closed").hide();
+                $("#open").show();
+                $("#password").attr("type", "password");
+            });
+        });
+    </script>
+    }
+
+ 

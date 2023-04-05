@@ -1,0 +1,90 @@
+﻿@inject Emp_performance_appraisal.Services.basicfn emp;
+@{
+    if(ViewBag.afm !=null)
+    {
+
+            <div class="container border border-bottom shadow-lg">
+
+
+
+            <label>Appraisal</label>
+            <h6>@ViewBag.afm.AppraisalId</h6>
+            <hr/>
+            <label>Objectives</label>
+            <h6>@ViewBag.afm.Objectives</h6>
+            <hr />
+
+            <label>Employee Name</label>
+            <h6>@emp.GetEmployeeById(ViewBag.afm.EmpID).Name</h6>
+            <hr />
+            
+            <label>Manager Name</label>
+            <h6>@emp.GetEmployeeById(ViewBag.afm.ManagerID).Name</h6>
+            <hr />
+           
+            <label>Technical Competency</label>
+            <h6>@ViewBag.tech</h6>
+            <hr />
+
+
+            @{
+                if(ViewBag.fm != null)
+                {
+
+                    <label>Employee Comment On Technical Competency</label>
+                    <h6>@ViewBag.fm.EmpCommentsT</h6>
+                    <hr />
+
+                    <label>Employee Rating On Technical Competency</label>
+                    <h6>@ViewBag.fm.EmpRatingT</h6>
+                    <hr />
+
+                    <label>Manager Comment On Technical Competency</label>
+                    <h6>@ViewBag.fm.MgrCommentsT</h6>
+                    <hr />
+
+                    <label>Manager Rating On Technical Competency</label>
+                    <h6>@ViewBag.fm.MgrRatingT</h6>
+                    <hr />
+
+                }
+            }
+
+
+
+            <label>Behavioural Competency</label>
+            <h6>@ViewBag.behv</h6>
+            <hr />
+
+            @{
+                if (ViewBag.fm != null)
+                {
+
+                    <label>Employee Comment On Behavioural Competency</label>
+                    <h6>@ViewBag.fm.EmpCommentsB</h6>
+                    <hr />
+
+                    <label>Employee Rating On Behavioural Competency</label>
+                    <h6>@ViewBag.fm.EmpRatingB</h6>
+                    <hr />
+
+                    <label>Manager Comment On Behavioural Competency</label>
+                    <h6>@ViewBag.fm.MgrCommentsB</h6>
+                    <hr />
+
+                    <label>Manager Rating On Behavioural Competency</label>
+                    <h6>@ViewBag.fm.MgrRatingB</h6>
+                    <hr />
+                }
+            }
+
+
+</div>
+
+
+    }
+    else
+    {
+        <p>No appraisal form is here..</p>
+    }
+}

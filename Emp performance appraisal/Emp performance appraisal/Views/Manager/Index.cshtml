@@ -1,0 +1,41 @@
+﻿<h2>Performance</h2>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">My Reviews</h5>
+                <a class="btn btn-outline-info" asp-action="AddAppraisal" asp-controller="Manager">Create Appraisal</a>
+                
+                <hr />
+                @{
+                    if (ViewBag.data != null)
+                    {
+                        foreach (var item in ViewBag.data)
+                        {
+                            <p>You have Created form for <b>@item.EmpID</b> on <b>@item.StartDate</b> <a asp-action="MgrForm" asp-controller="Manager" asp-route-mid="@item.AppraisalId">See Details</a> </p>
+                            <hr />
+
+                        }
+                    }
+                    else
+                    {
+                        <p>No Appraisal Form Created</p>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">View</h5>
+                <a class="btn btn-outline-info" asp-action="ViewAppraisal" asp-controller="Manager">View Appraisal</a>
+                @*<a class="btn btn-outline-info" asp-action="View Previous Appraisals" asp-controller="Home">View Previous Appraisals</a>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
